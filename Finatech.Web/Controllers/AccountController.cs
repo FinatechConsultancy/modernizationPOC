@@ -31,8 +31,7 @@ public class AccountController(ReflectionFactory reflectionFactory) : Controller
     [HttpPost]
     public IActionResult CreateAccountInfo([FromBody] AccountInfo accountInfo)
     {
-        AccountInfoService accountInfoService = new AccountInfoService();
-        var result = accountInfoService.CreateAccount(accountInfo.AccountId, accountInfo.AccountHolderName);
+        var result = _accountInfoService.CreateAccount(accountInfo.AccountId, accountInfo.AccountHolderName);
 
         if (!result)
         {

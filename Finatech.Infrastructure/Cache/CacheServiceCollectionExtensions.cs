@@ -2,8 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Options;
+
 
 namespace Etx.Infrastructure.Cache
 {

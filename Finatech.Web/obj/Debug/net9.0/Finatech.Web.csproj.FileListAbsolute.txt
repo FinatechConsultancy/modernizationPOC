@@ -1,7 +1,0 @@
-/Users/alpersogukpinar/EtxPOX/EtxPOC/Finatech.Web/obj/Debug/net9.0/Finatech.Web.csproj.AssemblyReference.cache
-/Users/alpersogukpinar/EtxPOX/EtxPOC/Finatech.Web/obj/Debug/net9.0/Finatech.Web.GeneratedMSBuildEditorConfig.editorconfig
-/Users/alpersogukpinar/EtxPOX/EtxPOC/Finatech.Web/obj/Debug/net9.0/Finatech.Web.AssemblyInfoInputs.cache
-/Users/alpersogukpinar/EtxPOX/EtxPOC/Finatech.Web/obj/Debug/net9.0/Finatech.Web.AssemblyInfo.cs
-/Users/alpersogukpinar/EtxPOX/EtxPOC/Finatech.Web/obj/Debug/net9.0/Finatech.Web.csproj.CoreCompileInputs.cache
-/Users/alpersogukpinar/EtxPOX/EtxPOC/Finatech.Web/obj/Debug/net9.0/Finatech.Web.MvcApplicationPartsAssemblyInfo.cs
-/Users/alpersogukpinar/EtxPOX/EtxPOC/Finatech.Web/obj/Debug/net9.0/Finatech.Web.MvcApplicationPartsAssemblyInfo.cache

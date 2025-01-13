@@ -399,7 +399,5 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-Finatech.Infrastructure/bin/bin/
-Finatech.Infrastructure/bin/obj/
-Finatech.Web/bin/bin/
-Finatech.Web/bin/obj/
+**/bin/
+**/obj/
