@@ -1,8 +1,8 @@
-
-
 using Etx.Infrastructure.Cache;
+using Etx.Infrastructure.Factories;
 using Etx.Infrastructure.Service;
-using Etx.Infrastructure.Utilities;
+using Finatech.AccountManagement.Extensions;
+using Finatech.CreditManagement.Extensions;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,18 +10,26 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-builder.Services.AddSingleton<ReflectionFactory>();
+// Add cache services
+builder.Services.AddApplicationCache(builder.Configuration);
 
+//Add Business Modules
+builder.Services.AddAccountManagementModule();
+builder.Services.AddCreditModule();
+
+//Add AutoMapper
+builder.Services.AddAutoMapper(typeof(Program));
+
+
+//Create servises wiht this ReflectionFactory class and adds it to DI container.
+// CreateInstance() method simulates RouterInternal.ExecuteDLLMethod() in the legacy code.
+// builder.Services.AddScoped<ReflectionFactory>();
+builder.Services.AddScoped<IDependencyReflectorFactory, DependencyReflectorFactory>();
 // Add Swagger services
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
 });
-
-// Add cache services
-builder.Services.AddApplicationCache(builder.Configuration);
-
-
 
 var app = builder.Build();
 
@@ -54,7 +62,7 @@ app.MapStaticAssets();
 app.MapControllers();
 
 
-// Set the service provider to use from legacy code.
+// Set the service provider to use DI from legacy code.
 ServiceLocator.ServiceProvider = app.Services;
 
 app.Run();

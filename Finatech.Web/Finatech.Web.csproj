@@ -4,10 +4,11 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>Etx.Web</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Finatech.AccountManagement\Finatech.AccountManagement.csproj" />
+      <ProjectReference Include="..\Finatech.CreditManagement\Finatech.CreditManagement.csproj" />
       <ProjectReference Include="..\Finatech.Infrastructure\Finatech.Infrastructure.csproj" />
     </ItemGroup>
 
@@ -89,6 +90,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="13.0.1" />
       <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.0" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
     </ItemGroup>

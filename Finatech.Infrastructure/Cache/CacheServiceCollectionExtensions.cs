@@ -10,14 +10,12 @@ namespace Etx.Infrastructure.Cache
     {
         public static IServiceCollection AddApplicationCache(this IServiceCollection services, IConfiguration configuration)
         {
-            
             //Add Memory cache by default
             services.AddMemoryCache();
             
             // Retrieve and bind cache settings
             CacheSettings cacheSettings = configuration.GetSection(nameof(CacheSettings)).Get<CacheSettings>() 
                                           ?? throw new ArgumentNullException(nameof(CacheSettings), "Cache settings are not configured.");
-
             
 
             if (cacheSettings.CacheType == "Redis")
