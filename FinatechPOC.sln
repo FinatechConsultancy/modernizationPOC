@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finatech.Web", "Finatech.Web\Finatech.Web.csproj", "{A8B91086-3F94-4909-A9D1-DA0FB56E4E00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finatech.Infrastructure", "Finatech.Infrastructure\Finatech.Infrastructure.csproj", "{6B131F89-062C-4BAB-B2A0-318BCB2D0E39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8B91086-3F94-4909-A9D1-DA0FB56E4E00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8B91086-3F94-4909-A9D1-DA0FB56E4E00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8B91086-3F94-4909-A9D1-DA0FB56E4E00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8B91086-3F94-4909-A9D1-DA0FB56E4E00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B131F89-062C-4BAB-B2A0-318BCB2D0E39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B131F89-062C-4BAB-B2A0-318BCB2D0E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B131F89-062C-4BAB-B2A0-318BCB2D0E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B131F89-062C-4BAB-B2A0-318BCB2D0E39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

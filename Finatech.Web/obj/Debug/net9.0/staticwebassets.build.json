@@ -1,0 +1,20 @@
+{
+  "Version": 1,
+  "Hash": "TaqBuHNApPClW1s97gUTH/ZbmKZjg21lPz5uRXvM5uk=",
+  "Source": "Etx.Web",
+  "BasePath": "_content/Etx.Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Etx.Web/wwwroot",
+      "Source": "Etx.Web",
+      "ContentRoot": "/Users/alpersogukpinar/EtxPOX/EtxPOC/Etx.Web/wwwroot/",
+      "BasePath": "_content/Etx.Web",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [],
+  "Endpoints": []
+}
