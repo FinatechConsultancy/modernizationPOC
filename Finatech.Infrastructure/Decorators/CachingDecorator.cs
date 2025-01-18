@@ -78,8 +78,7 @@ public class CachingDecorator<T> : DispatchProxy
     {
         if(string.IsNullOrEmpty(cacheKeyPrefix)) 
             cacheKeyPrefix = $"{_decorated.GetType().Name}.{targetMethod.Name}";
-
-
+        
         //var parameter = targetMethod.GetParameters().Where(p => cacheKey.StartsWith(p.Name)).FirstOrDefault();
         var parameters  = targetMethod.GetParameters();
         for (int i = 0; i < args.Length; i++)
@@ -88,10 +87,6 @@ public class CachingDecorator<T> : DispatchProxy
                 cacheKey = ExpressionEvaluator.EvaluateExpression(cacheKey, args[i]).ToString(); break;
         }
         
-        
-        
-        
         return $"{cacheKeyPrefix}.{cacheKey}";
     }
-    
 }

@@ -36,7 +36,7 @@ public class ServiceContextFilter : IActionFilter
     {
         _logger.LogInformation("ServiceContextFilter - OnActionExecuting called.");
         
-        // Initialize ServiceContext info from session, cache etc. using the JTW, request parameters etc.
+        // Initialize ServiceContext info from session, cache etc. using the JWT, request parameters etc.
         User? user = _userService.GetUser("1");
        _serviceContext.UserInfo = _mapper.Map<UserInfo>(user);
        _serviceContext.ConfigurationParameters = _configurationParameterService.GetAllConfigurationParameters();
