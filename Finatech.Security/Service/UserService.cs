@@ -1,3 +1,5 @@
+using Finatech.Infrastructure.Attributes;
+using Finatech.Infrastructure.Cache;
 using Finatech.Security.Business;
 using Finatech.Security.Model;
 
@@ -17,6 +19,7 @@ public class UserService : IUserService
         _userBusiness.AddUser(user);
     }
     
+    [Cacheable("userId", 300, CacheType.Distributed)]
     public User? GetUser(string userId)
     {
         return _userBusiness.GetUser(userId);

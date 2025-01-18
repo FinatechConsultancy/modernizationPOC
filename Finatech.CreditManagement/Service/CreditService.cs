@@ -17,8 +17,8 @@ public class CreditService:ICreditService
 
     //First InvalidateCacheableAttribute is redundant, as it is new record,
     //it is not in cache but just to show how to use multiple InvalidateCacheableAttribute
-    [InvalidateCacheableAttribute("creditProduct.creditId", cacheKeyPrefix:"CreditService.GetCreditProduct")]
-    [InvalidateCacheableAttribute("", cacheKeyPrefix:"CreditService.GetAllCreditProducts")]
+    [InvalidateCacheable("creditProduct.creditId", cacheKeyPrefix:"CreditService.GetCreditProduct")]
+    [InvalidateCacheable("", cacheKeyPrefix:"CreditService.GetAllCreditProducts")]
     public void AddCreditProduct(CreditProduct creditProduct)
     {
         _creditBusiness.AddCreditProduct(creditProduct);
@@ -31,13 +31,13 @@ public class CreditService:ICreditService
         return _creditBusiness.GetCreditProduct(creditId);
     }
     
-    [InvalidateCacheableAttribute("creditId", CacheType.Memory, cacheKeyPrefix:"CreditService.GetCreditProduct")]
+    [InvalidateCacheable("creditId", CacheType.Memory, cacheKeyPrefix:"CreditService.GetCreditProduct")]
     public bool MakePayment(string creditId, decimal amount)
     {
         return _creditBusiness.MakePayment(creditId, amount);
     }
 
-    [InvalidateCacheableAttribute("creditId", CacheType.Memory, cacheKeyPrefix:"CreditService.GetCreditProduct")]
+    [InvalidateCacheable("creditId", CacheType.Memory, cacheKeyPrefix:"CreditService.GetCreditProduct")]
     public void ApplyInterest(string creditId)
     {
         _creditBusiness.ApplyInterest(creditId);
