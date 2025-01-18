@@ -1,5 +1,7 @@
 using Finatech.CreditManagement.Business;
 using Finatech.CreditManagement.Model;
+using Finatech.Infrastructure.Attributes;
+using Finatech.Infrastructure.Cache;
 
 namespace Finatech.CreditManagement.Service;
 
@@ -13,23 +15,37 @@ public class CreditService:ICreditService
         _creditBusiness = creditBusiness;
     }
 
+    //First InvalidateCacheableAttribute is redundant, as it is new record,
+    //it is not in cache but just to show how to use multiple InvalidateCacheableAttribute
+    [InvalidateCacheableAttribute("creditProduct.creditId", cacheKeyPrefix:"CreditService.GetCreditProduct")]
+    [InvalidateCacheableAttribute("", cacheKeyPrefix:"CreditService.GetAllCreditProducts")]
     public void AddCreditProduct(CreditProduct creditProduct)
     {
         _creditBusiness.AddCreditProduct(creditProduct);
     }
 
-    public CreditProduct? GetCreditProduct(string accountId)
+    
+    [Cacheable("creditId", 300, CacheType.Memory)]
+    public CreditProduct? GetCreditProduct(string creditId)
     {
-        return _creditBusiness.GetCreditProduct(accountId);
+        return _creditBusiness.GetCreditProduct(creditId);
+    }
+    
+    [InvalidateCacheableAttribute("creditId", CacheType.Memory, cacheKeyPrefix:"CreditService.GetCreditProduct")]
+    public bool MakePayment(string creditId, decimal amount)
+    {
+        return _creditBusiness.MakePayment(creditId, amount);
     }
 
-    public bool MakePayment(string accountId, decimal amount)
+    [InvalidateCacheableAttribute("creditId", CacheType.Memory, cacheKeyPrefix:"CreditService.GetCreditProduct")]
+    public void ApplyInterest(string creditId)
     {
-        return _creditBusiness.MakePayment(accountId, amount);
+        _creditBusiness.ApplyInterest(creditId);
     }
-
-    public void ApplyInterest(string accountId)
+    
+    [Cacheable("", 300, CacheType.Memory)]
+    public IEnumerable<CreditProduct> GetAllCreditProducts()
     {
-        _creditBusiness.ApplyInterest(accountId);
+        return _creditBusiness.GetAllCreditProducts();
     }
 }

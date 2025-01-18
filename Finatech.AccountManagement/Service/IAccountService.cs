@@ -1,6 +1,6 @@
 using Finatech.AccountManagement.Model;
 
-namespace Etx.Infrastructure.Service;
+namespace Finatech.Infrastructure.Service;
 
 public interface IAccountService
 {

@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Etx.Infrastructure.Service;
+namespace Finatech.Infrastructure.Service;
 
 public class LegacyAccountService
 {

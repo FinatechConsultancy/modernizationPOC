@@ -4,7 +4,10 @@ namespace Finatech.AccountManagement.Business;
 
 public class AccountBusiness
 {
-    private static readonly Dictionary<string, Account> _accounts = new();
+    private static readonly Dictionary<string, Account> _accounts = new()
+    {
+        {"1", new Account(){ AccountId = "1", AccountHolderName = "Alice", Balance = 100 }}
+    };
     
     public bool CreateAccount(string accountId, string accountHolderName)
     {

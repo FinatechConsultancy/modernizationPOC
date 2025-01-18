@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Caching.Distributed;
 
-namespace Etx.Infrastructure.Cache;
+namespace Finatech.Infrastructure.Cache;
 
 public class RedisCache: IDistributedCache
 {

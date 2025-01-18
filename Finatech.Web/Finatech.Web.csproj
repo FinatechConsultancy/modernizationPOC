@@ -10,6 +10,7 @@
       <ProjectReference Include="..\Finatech.AccountManagement\Finatech.AccountManagement.csproj" />
       <ProjectReference Include="..\Finatech.CreditManagement\Finatech.CreditManagement.csproj" />
       <ProjectReference Include="..\Finatech.Infrastructure\Finatech.Infrastructure.csproj" />
+      <ProjectReference Include="..\Finatech.Security\Finatech.Security.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -86,6 +87,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Extensions\" />
       <Folder Include="wwwroot\" />
     </ItemGroup>
 

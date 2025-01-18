@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Etx.Infrastructure.Service;
+namespace Finatech.Infrastructure.Service;
 
 public static class ServiceLocator
 {

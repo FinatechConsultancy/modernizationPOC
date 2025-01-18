@@ -4,7 +4,7 @@ using Finatech.CreditManagement.Service;
 using Finatech.Web.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Etx.Web.Controllers;
+namespace Finatech.Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]
@@ -27,11 +27,18 @@ public class CreditController : ControllerBase
         return Ok(new { Message = "Credit created successfully" });
     }
     
-
-    [HttpGet("get/{accountId}")]
-    public IActionResult GetCreditProduct(string accountId)
+    [HttpGet]
+    public IActionResult GetAllCreditProducts()
     {
-        var creditProduct = _creditService.GetCreditProduct(accountId);
+        var creditProducts = _creditService.GetAllCreditProducts();
+        var creditProductDtos = _mapper.Map<IEnumerable<CreditProductDto>>(creditProducts);
+        return Ok(creditProductDtos);
+    }
+
+    [HttpGet("{crediId}")]
+    public IActionResult GetCreditProduct(string crediId)
+    {
+        var creditProduct = _creditService.GetCreditProduct(crediId);
         if (creditProduct == null)
         {
             return NotFound();
@@ -41,9 +48,9 @@ public class CreditController : ControllerBase
     }
 
     [HttpPost("make-payment")]
-    public IActionResult MakePayment(string accountId, decimal amount)
+    public IActionResult MakePayment(string creditId, decimal amount)
     {
-        var success = _creditService.MakePayment(accountId, amount);
+        var success = _creditService.MakePayment(creditId, amount);
         if (!success)
         {
             return BadRequest("Payment failed.");
@@ -52,9 +59,9 @@ public class CreditController : ControllerBase
     }
 
     [HttpPost("apply-interest")]
-    public IActionResult ApplyInterest(string accountId)
+    public IActionResult ApplyInterest(string creditId)
     {
-        _creditService.ApplyInterest(accountId);
+        _creditService.ApplyInterest(creditId);
         return Ok();
     }
 }

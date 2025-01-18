@@ -1,4 +1,4 @@
-namespace Etx.Infrastructure.Cache;
+namespace Finatech.Infrastructure.Cache;
 
 public class CacheSettings
 {

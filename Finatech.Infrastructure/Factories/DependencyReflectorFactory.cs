@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Logging;
 
-namespace Etx.Infrastructure.Factories;
+namespace Finatech.Infrastructure.Factories;
 
 public class DependencyReflectorFactory : IDependencyReflectorFactory
 {

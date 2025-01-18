@@ -1,14 +1,26 @@
-using Etx.Infrastructure.Cache;
-using Etx.Infrastructure.Factories;
-using Etx.Infrastructure.Service;
+using Finatech.Infrastructure.Cache;
+using Finatech.Infrastructure.Service;
+using Finatech.Infrastructure.Factories;
 using Finatech.AccountManagement.Extensions;
 using Finatech.CreditManagement.Extensions;
+using Finatech.Infrastructure.Extensions;
+using Finatech.Infrastructure.Model;
+using Finatech.Security.Extensions;
+using Finatech.Web.Filters;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// Register your custom filter with dependency injection
+builder.Services.AddScoped<ServiceContextFilter>();
+
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => 
+{
+    options.Filters.Add<ServiceContextFilter>();
+});
+
 
 // Add cache services
 builder.Services.AddApplicationCache(builder.Configuration);
@@ -16,15 +28,17 @@ builder.Services.AddApplicationCache(builder.Configuration);
 //Add Business Modules
 builder.Services.AddAccountManagementModule();
 builder.Services.AddCreditModule();
+builder.Services.AddSecurityModule();
 
 //Add AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));
 
+//Add common Infrastructure Services that are used by all modules
+builder.Services.AddInfrastructureServices();
 
-//Create servises wiht this ReflectionFactory class and adds it to DI container.
-// CreateInstance() method simulates RouterInternal.ExecuteDLLMethod() in the legacy code.
-// builder.Services.AddScoped<ReflectionFactory>();
-builder.Services.AddScoped<IDependencyReflectorFactory, DependencyReflectorFactory>();
+builder.Services.AddCachingDecorator();
+
+
 // Add Swagger services
 builder.Services.AddSwaggerGen(c =>
 {
@@ -40,6 +54,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 
 app.UseHttpsRedirection();
 app.UseRouting();

@@ -1,11 +1,11 @@
 using AutoMapper;
-using Etx.Infrastructure.Factories;
-using Etx.Infrastructure.Service;
+using Finatech.Infrastructure.Service;
+using Finatech.Infrastructure.Factories;
 using Finatech.AccountManagement.Model;
 using Finatech.Web.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Etx.Web.Controllers;
+namespace Finatech.Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]

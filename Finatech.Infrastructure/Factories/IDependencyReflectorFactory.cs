@@ -1,4 +1,4 @@
-namespace Etx.Infrastructure.Factories;
+namespace Finatech.Infrastructure.Factories;
 
 /// <summary>
 /// A factory that can create objects with DI

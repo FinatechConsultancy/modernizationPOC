@@ -1,10 +1,11 @@
 
+using Finatech.Infrastructure.Cache;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 
 
-namespace Etx.Infrastructure.Cache
+namespace Finatech.Infrastructure.Cache
 {
     public static class CacheServiceCollectionExtensions
     {
@@ -29,11 +30,12 @@ namespace Etx.Infrastructure.Cache
             else if (cacheSettings.CacheType == "NCache")
             {
                 // Initialize NCache
-                services.AddSingleton<IDistributedCache>(provider =>
-                {
-                    return new NCacheDistributedCache();
-                    
-                });
+                services.AddSingleton<IDistributedCache, NCacheDistributedCache>();
+                // services.AddSingleton<IDistributedCache>(provider =>
+                // {
+                //     return new NCacheDistributedCache();
+                //     
+                // });
     
             }
             else
